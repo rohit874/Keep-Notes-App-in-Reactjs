@@ -7,15 +7,67 @@ import React, { useState } from 'react';
 
 function App() {
   const [items, setitems] = useState([
-    {title:"do you know",
-    content:"did you want this is a paper less work what do you think abut it"},
-    {title:"How did do you know",
-    content:"did you want this is a paper less work what do you think abut it"},
-    {title:"Can i get yout email id you know",
-    content:"did you want this is a paper less work what do you think abut it"},
-    {title:" So cool and Super do you know",
-    content:"did you want this is a paper less work what do you think abut it"}
-  ]);
+      {
+          title: 'do you know',
+          content:
+              'did you want this is a paper less work what do you think abut it id you want this is a paper less workt this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'How did do you know',
+          content:
+              'did you want this is a paper less work what do you think abut it id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'Can i get yout email id you know',
+          content:
+              'did you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: ' So cool and Super do you know',
+          content:
+              'id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itdid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'do you know',
+          content:
+              'did you want this is a paper less work what do you think abut it id you want this is a paper less workt this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'How did do you know',
+          content:
+              'did you want this is a paper less work what do you think abut it id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'Can i get yout email id you know',
+          content:
+              'did you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: ' So cool and Super do you know',
+          content:
+              'id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itdid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'do you know',
+          content:
+              'did you want this is a paper less work what do you think abut it id you want this is a paper less workt this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'How did do you know',
+          content:
+              'did you want this is a paper less work what do you think abut it id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: 'Can i get yout email id you know',
+          content:
+              'did you want this is a paper less work what do you think abut it',
+      },
+      {
+          title: ' So cool and Super do you know',
+          content:
+              'id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itdid you want this is a paper less work what do you think abut it',
+      },
+  ])
   const [updatenote, setupdatenote] = useState(
     {title:"Rohit",
     content:"KUMAR you want this is a paper less work what do you think abut it",

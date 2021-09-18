@@ -11,7 +11,7 @@ function Notes(props) {
           <div className="notes_div">
               <h3>{props.title}</h3>
               <p>{props.content}</p>
-              <button onClick={deletenote} ><i class="fas fa-code"></i></button>
+              <button onClick={deletenote} >Del</button>
               <button onClick={editbtn} >Edit</button>
           </div>
       </>
