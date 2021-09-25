@@ -3,90 +3,63 @@ import Header from './header';
 import TakeNotes from './takeNotes';
 import Notes from './notes';
 import Popup from './Popup';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [items, setitems] = useState([
-      {
-          title: 'do you know',
-          content:
-              'did you want this is a paper less work what do you think abut it id you want this is a paper less workt this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'How did do you know',
-          content:
-              'did you want this is a paper less work what do you think abut it id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'Can i get yout email id you know',
-          content:
-              'did you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: ' So cool and Super do you know',
-          content:
-              'id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itdid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'do you know',
-          content:
-              'did you want this is a paper less work what do you think abut it id you want this is a paper less workt this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'How did do you know',
-          content:
-              'did you want this is a paper less work what do you think abut it id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'Can i get yout email id you know',
-          content:
-              'did you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: ' So cool and Super do you know',
-          content:
-              'id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itdid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'do you know',
-          content:
-              'did you want this is a paper less work what do you think abut it id you want this is a paper less workt this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'How did do you know',
-          content:
-              'did you want this is a paper less work what do you think abut it id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: 'Can i get yout email id you know',
-          content:
-              'did you want this is a paper less work what do you think abut it',
-      },
-      {
-          title: ' So cool and Super do you know',
-          content:
-              'id you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itid you want this is a paper less work what do you think abut itdid you want this is a paper less work what do you think abut it',
-      },
-  ])
-  const [updatenote, setupdatenote] = useState(
-    {title:"Rohit",
-    content:"KUMAR you want this is a paper less work what do you think abut it",
-    id:""
-  }
-  );
+
+    //switch b/w light & Dark theme
+    let theme_dark = "--theme: black; --text: white; --background:#383838; --boxShadow: #7a7a7ac9;";
+    let theme_light = "--theme: white; --text: black; --background:#ececec; --boxShadow: #00000033;";
+    const [themeDark, setThemeDark] = useState(false);
+    const Changetheme = () => {
+      if (!themeDark) {
+        document.documentElement.style.cssText = theme_dark;
+      }
+      else{
+        document.documentElement.style.cssText = theme_light;
+      }
+      setThemeDark(!themeDark);
+    }
+  
+  const [items, setitems] = useState([]);
+  //checking if localstorage already exist
+  useEffect(()=>{
+    if(localStorage.hasOwnProperty("notes_data")){
+      console.log("local");
+      var retrievedData = localStorage.getItem("notes_data");
+      var notes_data = JSON.parse(retrievedData);
+      console.log(notes_data);
+      setitems(notes_data);
+    }
+    else{
+      localStorage.setItem("notes_data", JSON.stringify(items));
+    }
+  },[]);
+
+  //update localstorage when items updated
+  useEffect(() => {
+    localStorage.setItem("notes_data", JSON.stringify(items));
+  }, [items]);
+
+
+  const [updatenote, setupdatenote] = useState({title:"",content:"",id:""});
   const [isOpen, setIsOpen] = useState(false);
+
   const togglePopup = (id) => {
-    updatenote.title=items[id]["title"];
-    updatenote.content=items[id]["content"];
+    console.log(id);
+    updatenote.title=items[id].title;
+    updatenote.content=items[id].content;
     updatenote.id=id;
     setIsOpen(!isOpen);
   }
-const closebtn =()=>{
-  setIsOpen(!isOpen);
-}
+
+  const closebtn =()=>{
+    setIsOpen(!isOpen);
+  }
+
   const addnote=(notes)=>{
     setitems((prevdata)=>{
-      return [...prevdata, notes];
+      return [notes,...prevdata];
     });
   };
 
@@ -105,9 +78,11 @@ const closebtn =()=>{
         setitems(temporaryarray);
         closebtn();
   };
+
+
   return (
     <div>
-      <Header />
+      <Header Changetheme={Changetheme} />
       <TakeNotes passnote={addnote} />
       <div className="notes_parent">
         {
@@ -115,14 +90,14 @@ const closebtn =()=>{
           return (<Notes 
           key={index}
           id={index}
-          title={val.title}
-          content={val.content}
+          data={val}
           deleteitem={ondelete}
           updateitem={onupdate}
           handleClose={togglePopup}
           />);
         })}
       </div>
+      
     {isOpen && <Popup
       handleClose={togglePopup}
       Closemodel={closebtn}

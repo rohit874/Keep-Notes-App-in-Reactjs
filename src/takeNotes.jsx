@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import moment from "moment";
+
 function TakeNotes(props) {
     const [notes, setnotes]= useState({
         title:"",
@@ -13,12 +15,13 @@ function TakeNotes(props) {
         };
     });
 };
-    const addevent = ()=>{
+    const addevent = async ()=>{
         if(notes.title!="" || notes.content!=""){
             props.passnote(notes);
             setnotes({
             title:"",
             content:"",
+            date: await moment().format("DD MMM YYYY hh:mma")
             });
          }
     }

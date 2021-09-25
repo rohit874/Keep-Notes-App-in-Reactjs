@@ -9,10 +9,13 @@ function Notes(props) {
     return (
       <>
           <div className="notes_div">
-              <h3>{props.title}</h3>
-              <p>{props.content}</p>
-              <button onClick={deletenote} >Del</button>
-              <button onClick={editbtn} >Edit</button>
+              <h3>{props.data.title}</h3>
+              <p>{props.data.content}</p>
+              <div className="date_button">
+                <span>{props.data.date}</span>
+                <button className="editbtn" onClick={editbtn} >Edit</button>
+                <button className="dlbtn" onClick={deletenote} >Del</button>
+              </div>
           </div>
       </>
     );

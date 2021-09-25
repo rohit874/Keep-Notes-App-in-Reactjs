@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Popup = props => {
+const Popup = (props) => {
     const [notes, setnotes]= useState({
         title:props.title,
         content:props.content,
