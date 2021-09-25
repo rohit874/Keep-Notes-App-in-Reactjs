@@ -145,6 +145,7 @@ nav h3{
   outline: none;
   font-size: 16px;
   line-height: 26px;
+  resize: none;
 }
 .tn_div input{
   font-weight: 800;
@@ -230,4 +231,15 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+  .tn_div{
+    margin:30px 7px;
+  }
+  .notes_div{
+    margin:5px 7px;
+    max-width:none;
+    width: 100%;
+  }
 }

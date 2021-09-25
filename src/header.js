@@ -4,7 +4,6 @@ function Header(props) {
     <div>
         <nav>
       <h3>G Keep</h3>
-      {/* <button onClick={props.Changetheme}>Dark</button> */}
       <div className="nav-right">
         <span className="theme-icon">&#9728;</span>
         <label className="switch">

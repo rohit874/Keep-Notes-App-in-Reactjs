@@ -15,14 +15,22 @@ function TakeNotes(props) {
         };
     });
 };
+    const getDate=()=>{
+        return moment().format("DD MMM YYYY hh:mma");
+    }
+
     const addevent = async ()=>{
+        const newDate = getDate();
         if(notes.title!="" || notes.content!=""){
             props.passnote(notes);
-            setnotes({
-            title:"",
-            content:"",
-            date: await moment().format("DD MMM YYYY hh:mma")
-            });
+            setTimeout(() => {
+                setnotes({
+                    title:"",
+                    content:"",
+                    date: newDate 
+                    });
+            }, 50);
+            
          }
     }
     return (
