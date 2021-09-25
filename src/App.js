@@ -21,14 +21,33 @@ function App() {
       setThemeDark(!themeDark);
     }
   
-  const [items, setitems] = useState([]);
+  const [items, setitems] = useState([
+    {
+        title: 'This is first heading of first note',
+        content:
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum odio ad, maiores impedit libero harum similique! Deserunt atque, accusantium voluptates, ipsum minima error officiis expedita aliquid maiores a, nesciunt laudantium temporibus magnam non perspiciatis! Vitae totam odio sunt neque quas autem, quod perferendis, sequi minima repellat fugit accusantium officia eos.',
+        date: '29 May 2021 12:34pm'
+
+    },
+    {
+        title: 'This is Second heading of Second note',
+        content:
+            'Epsum minima error officiis expedita aliquid maiores a, nesciunt laudantium temporibus magnam non perspiciatis! Vitae totam odio sunt neque quas autem, quod perferendis, sequi minima repellat fugit accusantium officia eos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum odio ad, maiores impedit libero harum similique! Deserunt atque, accusantium voluptates.',
+        date: '29 May 2021 12:34pm'
+    },
+    {
+        title: 'This is Third example heading of note',
+        content:
+            'Nostrum odio ad, maiores impedit libero harum similique! Deserunt atque, accusantium voluptates, i Epsum minima error officiis expedita aliquid maiores a, nesciunt laudantium temporibus magnam non perspiciatis! Vitae totam odio sunt neque quas autem, quod perferendis, sequi minima repellat fugit accusantium officia eos. Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
+        date: '29 May 2021 12:34pm'
+
+    },
+]);
   //checking if localstorage already exist
   useEffect(()=>{
     if(localStorage.hasOwnProperty("notes_data")){
-      console.log("local");
       var retrievedData = localStorage.getItem("notes_data");
       var notes_data = JSON.parse(retrievedData);
-      console.log(notes_data);
       setitems(notes_data);
     }
     else{
@@ -46,7 +65,6 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = (id) => {
-    console.log(id);
     updatenote.title=items[id].title;
     updatenote.content=items[id].content;
     updatenote.id=id;
